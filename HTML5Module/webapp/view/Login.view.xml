@@ -1,0 +1,79 @@
+<mvc:View controllerName="com.wise.HTML5Module.controller.Login" 
+displayBlock="true"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:tnt="sap.tnt"
+	xmlns="sap.m">
+<App id="app">
+		<Page id="loginPage" showHeader="false" enableScrolling="true">
+			<content>
+				<tnt:ToolPage id="toolPage">
+					<tnt:header>
+						<tnt:ToolHeader id="loginToolHeader">
+							<Button id="homeButton" icon="sap-icon://home" type="Transparent">
+								<layoutData>
+									<OverflowToolbarLayoutData priority="NeverOverflow" />
+								</layoutData>
+							</Button>
+							<Label text="PORTAL CLIENTES WISE" design="Bold"/>
+							<ToolbarSpacer>
+								<layoutData>
+									<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px" />
+								</layoutData>
+							</ToolbarSpacer>
+								<Button id="userButton" icon="sap-icon://account"  type="Transparent">
+									<layoutData>
+										<OverflowToolbarLayoutData priority="NeverOverflow" />
+									</layoutData>
+								</Button>
+						</tnt:ToolHeader>
+					</tnt:header>
+				</tnt:ToolPage>
+				<Label text=""/>
+				<VBox>
+					<FlexBox id="oFlexBLogin" alignContent="Center" justifyContent="Center" class="sapUiSmallMarginTop">
+                    <items>
+						<f:SimpleForm id="solicitudForm1" maxContainerCols="2"
+							editable="true" layout="ResponsiveGridLayout" title="" labelSpanL="2"
+							labelSpanM="2" emptySpanL="2" emptySpanM="2" columnsL="2"
+							columnsM="2" class="editableForm">
+							<f:content>
+								 <Image
+									src="Img/Logo_Wise.png"
+									width="190px"
+									height="70px"/>
+								<Label text="Mandante"/>
+								<Select id="idComboMandante">
+									<items>
+										<core:Item text="DEV - Desarrollo" key="500"/>
+										<core:Item text="QAS - Calidad" key="600"/>
+										<core:Item text="PRD - Productivo" key="700"/>
+									</items>
+								</Select>
+								<Label text="Usuario"/>
+								<Input id="myUser" placeholder="{i18n>Login.User}" value="ABAP.WISE" />
+								
+								<Label text="Password"/>
+								<Input type="Password" id="myPassword" value="styropek01" placeholder="{i18n>Login.Password}" change="onPasswordChange" />
+								
+								<Label text="Idioma"/>
+								<Select id="idComboLangu" change="onChangeIdioma">
+									<items>
+										<core:Item text="ES - Español" key="ES"/>
+										<core:Item text="EN - English" key="EN"/>
+									</items>
+								</Select>
+								<Label text=""/>
+								<Button text="{i18n>Login.Iniciar}" press="onPress" class="ZsapMBtnInner"/>
+								<Button text="{i18n>Login.Olvidar}" press="onPressOlvidar" />
+							</f:content>
+						</f:SimpleForm>
+					</items>
+					</FlexBox>
+				</VBox>
+			</content>
+		</Page>
+	</App>
+</mvc:View>
